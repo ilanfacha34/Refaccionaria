@@ -1,0 +1,124 @@
+.navbar{
+
+    width:100%;
+    height:80px;
+
+    background:#171717;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 70px;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+}
+
+.logo a{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+}
+
+.logoIcon{
+
+    width:42px;
+    height:42px;
+
+    background:#ff5c73;
+
+    border-radius:10px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    margin-right:12px;
+
+}
+
+.logoText h2{
+
+    color:white;
+
+    margin:0;
+
+    font-size:20px;
+
+}
+
+.logoText span{
+
+    color:#ff5c73;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+}
+
+.menu{
+
+    display:flex;
+
+    gap:40px;
+
+}
+
+.menu a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    position:relative;
+
+}
+
+.menu a:hover{
+
+    color:#ff5c73;
+
+}
+
+.activo{
+
+    color:#ff5c73 !important;
+
+}
+
+.activo::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:100%;
+
+    height:3px;
+
+    background:#ff5c73;
+
+    border-radius:20px;
+
+}

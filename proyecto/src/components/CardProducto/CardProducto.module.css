@@ -1,0 +1,123 @@
+.cardProducto{
+
+    background:#1b1b1b;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
+.cardProducto:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.cardImagen{
+
+    width:100%;
+
+    height:230px;
+
+    overflow:hidden;
+
+}
+
+.cardImagen img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.cardContenido{
+
+    padding:20px;
+
+}
+
+.categoria{
+
+    display:inline-block;
+
+    background:#ff5c73;
+
+    color:white;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    margin-bottom:12px;
+
+}
+
+.cardContenido h3{
+
+    color:white;
+
+    margin:10px 0;
+
+    font-size:22px;
+
+}
+
+.descripcion{
+
+    color:#bdbdbd;
+
+    font-size:15px;
+
+    line-height:24px;
+
+    margin-bottom:20px;
+
+}
+
+.precio{
+
+    color:#ff5c73;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+}
+
+.btnVer{
+
+    display:block;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    background:#ff5c73;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.btnVer:hover{
+
+    background:#ff4560;
+
+}

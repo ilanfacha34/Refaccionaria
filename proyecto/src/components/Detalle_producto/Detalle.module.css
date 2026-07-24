@@ -1,0 +1,165 @@
+.detalle{
+
+    min-height:100vh;
+
+    background:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:60px;
+
+    padding:60px;
+
+    color:white;
+
+}
+
+.detalleImagen{
+
+    width:500px;
+
+    background:#1b1b1b;
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+.detalleImagen img{
+
+    width:100%;
+
+    object-fit:contain;
+
+}
+
+.detalleInfo{
+
+    max-width:550px;
+
+}
+
+.detalleCategoria{
+
+    display:inline-block;
+
+    background:#ff5c73;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    margin-bottom:20px;
+
+}
+
+.detalleInfo h1{
+
+    font-size:48px;
+
+    margin-bottom:25px;
+
+}
+
+.detalleDescripcion{
+
+    color:#c7c7c7;
+
+    line-height:32px;
+
+    margin-bottom:30px;
+
+    font-size:18px;
+
+}
+
+.detallePrecio{
+
+    color:#ff5c73;
+
+    font-size:42px;
+
+    margin-bottom:35px;
+
+}
+
+.detalleBotones{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.btnComprar{
+
+    background:#ff5c73;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:16px 40px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.btnComprar:hover{
+
+    background:#ff4560;
+
+}
+
+.btnRegresar{
+
+    background:transparent;
+
+    border:2px solid #ff5c73;
+
+    color:#ff5c73;
+
+    text-decoration:none;
+
+    padding:14px 40px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.btnRegresar:hover{
+
+    background:#ff5c73;
+
+    color:white;
+
+}
+
+.detalleError{
+
+    min-height:100vh;
+
+    background:#111;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:30px;
+
+}
