@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import styles from "./App.module.css";
+import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
@@ -18,11 +18,11 @@ function App() {
 
     <BrowserRouter>
 
-      <div className={styles.app}>
+      <div>
 
         <Navbar />
 
-        <main className={styles.contenido}>
+        <main>
 
           <Routes>
 

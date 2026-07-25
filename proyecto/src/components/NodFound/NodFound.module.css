@@ -77,3 +77,28 @@
     background:#ff4560;
 
 }
+.contenido{
+
+    width:100%;
+    max-width:600px;
+
+}
+
+.boton{
+
+    display:inline-block;
+
+}
+
+/* Móvil */
+@media (max-width:640px){
+
+    .boton{
+
+        display:block;
+
+        width:100%;
+
+    }
+
+}

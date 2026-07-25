@@ -89,3 +89,86 @@
     color:#9e9e9e;
 
 }
+/*==================================================
+                  RESPONSIVE
+==================================================*/
+
+@media (max-width:1200px){
+
+    .contenedor{
+
+        padding:50px 40px;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:40px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .contenedor{
+
+        padding:40px 20px;
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:35px;
+
+    }
+
+    .contenedor h2{
+
+        font-size:26px;
+
+    }
+
+    .contenedor h3{
+
+        font-size:22px;
+
+    }
+
+    .contenedor a:hover{
+
+        padding-left:0;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .contenedor{
+
+        padding:35px 15px;
+
+    }
+
+    .contenedor h2{
+
+        font-size:22px;
+
+    }
+
+    .contenedor p{
+
+        font-size:15px;
+
+        line-height:24px;
+
+    }
+
+    .copy{
+
+        font-size:13px;
+
+        padding:18px 15px;
+
+    }
+
+}

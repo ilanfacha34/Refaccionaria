@@ -10,9 +10,11 @@ function ProductoHero() {
 
         return (
 
-            <section className={styles.error}>
+            <section className={`${styles.error} px-4`}>
 
-                <h2>Producto no encontrado</h2>
+                <h2 className="text-3xl md:text-5xl">
+                    Producto no encontrado
+                </h2>
 
                 <button
                     onClick={() => navigate("/")}
@@ -34,15 +36,31 @@ function ProductoHero() {
 
     return (
 
-        <section className={styles.detalle}>
+        <section
+            className={`${styles.detalle} px-4 sm:px-6 lg:px-8`}
+        >
 
-            <div className={styles.contenedor}>
+            <div
+                className={`${styles.contenedor}
+                grid
+                grid-cols-1
+                lg:grid-cols-2
+                gap-8
+                lg:gap-16
+                items-center`}
+            >
 
-                <div className={styles.imagen}>
+                <div
+                    className={`${styles.imagen}
+                    p-5
+                    sm:p-8
+                    lg:p-10`}
+                >
 
                     <img
                         src={state.imagen}
                         alt={state.nombre}
+                        className="mx-auto w-full max-w-md lg:max-w-xl"
                     />
 
                 </div>
@@ -53,7 +71,7 @@ function ProductoHero() {
                         {state.categoria}
                     </span>
 
-                    <h1>
+                    <h1 className="text-3xl md:text-5xl">
                         {state.nombre}
                     </h1>
 
@@ -65,7 +83,11 @@ function ProductoHero() {
                         ✔ {state.stock}
                     </div>
 
-                    <h2 className={styles.precio}>
+                    <h2
+                        className={`${styles.precio}
+                        text-4xl
+                        md:text-5xl`}
+                    >
                         {state.precio}
                     </h2>
 
@@ -89,7 +111,12 @@ function ProductoHero() {
 
                     </div>
 
-                    <div className={styles.botones}>
+                    <div
+                        className={`${styles.botones}
+                        flex
+                        flex-col
+                        sm:flex-row`}
+                    >
 
                         <a
                             href={`https://wa.me/525512345678?text=${mensaje}`}

@@ -4,9 +4,13 @@ function Contacto() {
 
   return (
 
-    <section className={styles.contacto}>
+    <section
+      className={`${styles.contacto} max-w-[1700px] mx-auto`}
+    >
 
-      <div className={styles.mapa}>
+      <div
+        className={`${styles.mapa} shadow-2xl hover:shadow-red-500/20 transition-all duration-300`}
+      >
 
         <iframe
           title="Mapa Magu Centro"
@@ -23,9 +27,15 @@ function Contacto() {
 
       <div className={styles.informacion}>
 
-        <h2>Información</h2>
+        <h2
+          className="font-bold"
+        >
+          Información
+        </h2>
 
-        <div className={styles.infoCard}>
+        <div
+          className={`${styles.infoCard} hover:scale-[1.02] transition-all duration-300`}
+        >
 
           <h3>📞 Teléfono</h3>
 
@@ -33,7 +43,9 @@ function Contacto() {
 
         </div>
 
-        <div className={styles.infoCard}>
+        <div
+          className={`${styles.infoCard} hover:scale-[1.02] transition-all duration-300`}
+        >
 
           <h3>📧 Correo</h3>
 
@@ -41,7 +53,9 @@ function Contacto() {
 
         </div>
 
-        <div className={styles.infoCard}>
+        <div
+          className={`${styles.infoCard} hover:scale-[1.02] transition-all duration-300`}
+        >
 
           <h3>🕒 Horario</h3>
 

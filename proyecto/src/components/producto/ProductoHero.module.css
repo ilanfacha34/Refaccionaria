@@ -372,3 +372,82 @@
     }
 
 }
+/* ==========================
+      RESPONSIVE EXTRA
+========================== */
+
+@media (max-width:1200px){
+
+    .detalle{
+
+        padding:60px 40px;
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .informacion{
+
+        text-align:center;
+
+        align-items:center;
+
+    }
+
+    .categoria,
+    .stock{
+
+        margin-left:auto;
+        margin-right:auto;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .bloque{
+
+        padding:20px;
+
+    }
+
+    .bloque h3{
+
+        font-size:20px;
+
+    }
+
+    .bloque p{
+
+        font-size:16px;
+
+        line-height:28px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .detalle{
+
+        padding:25px 15px;
+
+    }
+
+    .informacion h1{
+
+        font-size:28px;
+
+    }
+
+    .precio{
+
+        font-size:34px;
+
+    }
+
+}

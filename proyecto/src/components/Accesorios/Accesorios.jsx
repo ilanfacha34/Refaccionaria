@@ -25,17 +25,23 @@ const accesorios = [
   },
 ];
 
+
 function Accesorios() {
 
   const navigate = useNavigate();
 
+
   return (
 
-    <section className={styles.accesorios}>
+    <section
+      className={`${styles.accesorios} px-4 sm:px-8 lg:px-16`}
+    >
 
       <div className={styles.titulo}>
 
-        <h1>Accesorios</h1>
+        <h1 className="font-bold">
+          Accesorios
+        </h1>
 
         <p>
           Encuentra los mejores accesorios para personalizar
@@ -44,38 +50,53 @@ function Accesorios() {
 
       </div>
 
+
       <div className={styles.grid}>
 
         {
-
           accesorios.map((item) => (
 
             <div
               key={item.id}
-              className={styles.card}
+              className={`${styles.card}
+              hover:shadow-red-500/20
+              hover:scale-[1.02]
+              transition-all
+              duration-300`}
             >
+
 
               <div className={styles.imagen}>
 
                 <img
                   src={item.imagen}
                   alt={item.nombre}
+                  className="transition-transform duration-500 hover:scale-110"
                 />
 
               </div>
 
+
               <div className={styles.contenido}>
 
-                <h2>{item.nombre}</h2>
 
-                <p>{item.descripcion}</p>
+                <h2 className="font-bold">
+                  {item.nombre}
+                </h2>
 
-                <span>${item.precio} MXN</span>
+
+                <p>
+                  {item.descripcion}
+                </p>
+
+
+                <span>
+                  ${item.precio} MXN
+                </span>
+
 
                 <button
-
-                  className={styles.boton}
-
+                  className={`${styles.boton} hover:shadow-lg`}
                   onClick={() =>
                     navigate("/producto", {
                       state: {
@@ -91,27 +112,30 @@ function Accesorios() {
                       },
                     })
                   }
-
                 >
 
                   VER MÁS
 
                 </button>
 
+
               </div>
+
 
             </div>
 
           ))
-
         }
 
+
       </div>
+
 
     </section>
 
   );
 
 }
+
 
 export default Accesorios;

@@ -3,7 +3,9 @@ import styles from "./Navbar.module.css";
 
 function Navbar() {
   return (
-    <header className={styles.navbar}>
+    <header
+      className={`${styles.navbar} px-5 md:px-8 lg:px-[70px] flex-wrap md:flex-nowrap`}
+    >
       <div className={styles.logo}>
         <Link to="/">
           <div className={styles.logoIcon}>
@@ -17,7 +19,9 @@ function Navbar() {
         </Link>
       </div>
 
-      <nav className={styles.menu}>
+      <nav
+        className={`${styles.menu} w-full md:w-auto justify-center md:justify-end mt-4 md:mt-0`}
+      >
         <NavLink
           to="/"
           className={({ isActive }) =>

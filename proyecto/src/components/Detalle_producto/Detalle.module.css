@@ -163,3 +163,124 @@
     gap:30px;
 
 }
+/*==================================================
+                RESPONSIVE
+==================================================*/
+
+@media (max-width:1200px){
+
+    .detalle{
+
+        padding:50px 40px;
+
+        gap:40px;
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .detalle{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .detalleImagen{
+
+        width:100%;
+
+        max-width:600px;
+
+    }
+
+    .detalleInfo{
+
+        max-width:700px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .detalle{
+
+        padding:40px 20px;
+
+    }
+
+    .detalleInfo h1{
+
+        font-size:36px;
+
+    }
+
+    .detalleDescripcion{
+
+        font-size:16px;
+
+        line-height:28px;
+
+    }
+
+    .detallePrecio{
+
+        font-size:34px;
+
+    }
+
+    .detalleBotones{
+
+        flex-direction:column;
+
+    }
+
+    .btnComprar,
+
+    .btnRegresar{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .detalle{
+
+        padding:25px 15px;
+
+    }
+
+    .detalleImagen{
+
+        padding:20px;
+
+    }
+
+    .detalleInfo h1{
+
+        font-size:30px;
+
+    }
+
+    .detalleCategoria{
+
+        font-size:14px;
+
+    }
+
+    .detallePrecio{
+
+        font-size:30px;
+
+    }
+
+}

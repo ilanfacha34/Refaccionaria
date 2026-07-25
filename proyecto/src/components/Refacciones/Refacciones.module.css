@@ -131,3 +131,78 @@
     text-align:center;
 
 }
+/* ==========================
+      RESPONSIVE
+========================== */
+
+@media (max-width:1024px){
+
+    .refacciones{
+
+        flex-direction:column;
+
+        padding:30px 20px;
+
+    }
+
+    .menuLateral{
+
+        width:100%;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .refacciones{
+
+        padding:20px 15px;
+
+    }
+
+    .menuLateral h2{
+
+        font-size:22px;
+
+    }
+
+    .categoria{
+
+        font-size:15px;
+
+        padding:12px;
+
+    }
+
+    .encabezado h1{
+
+        font-size:32px;
+
+    }
+
+    .encabezado input{
+
+        padding:14px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .encabezado h1{
+
+        font-size:26px;
+
+        text-align:center;
+
+    }
+
+    .menuLateral{
+
+        padding:20px;
+
+    }
+
+}

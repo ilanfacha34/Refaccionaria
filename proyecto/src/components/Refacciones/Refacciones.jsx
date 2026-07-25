@@ -35,13 +35,23 @@ function Refacciones() {
 
   return (
 
-    <section className={styles.refacciones}>
+    <section
+      className={`${styles.refacciones}
+      flex-col lg:flex-row
+      px-4 sm:px-6 md:px-8 lg:px-10
+      py-8`}
+    >
 
-      <aside className={styles.menuLateral}>
+      <aside
+        className={`${styles.menuLateral}
+        w-full lg:w-[260px]
+        shrink-0`}
+      >
 
         <h2>Categorías</h2>
 
         {
+
           categorias.map((cat) => (
 
             <button
@@ -57,15 +67,20 @@ function Refacciones() {
             </button>
 
           ))
+
         }
 
       </aside>
 
-      <main className={styles.contenidoRefacciones}>
+      <main
+        className={`${styles.contenidoRefacciones} flex-1`}
+      >
 
         <div className={styles.encabezado}>
 
-          <h1>Catálogo de Refacciones</h1>
+          <h1 className="text-3xl md:text-4xl">
+            Catálogo de Refacciones
+          </h1>
 
           <input
             type="text"
@@ -78,9 +93,15 @@ function Refacciones() {
 
         </div>
 
-        <div className={styles.gridProductos}>
+        <div
+          className={`${styles.gridProductos}
+          grid-cols-1
+          sm:grid-cols-2
+          xl:grid-cols-3`}
+        >
 
           {
+
             productosFiltrados.length > 0 ? (
 
               productosFiltrados.map((producto) => (
@@ -99,6 +120,7 @@ function Refacciones() {
               </h2>
 
             )
+
           }
 
         </div>
