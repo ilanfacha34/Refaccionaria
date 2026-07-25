@@ -606,3 +606,120 @@
     }
 
 }
+/*=========================
+      CONTACTO CTA
+==========================*/
+
+.contactoCTA{
+
+    width:100%;
+
+    background:#e12626;
+
+    padding:90px 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.contactoContenido{
+
+    max-width:700px;
+
+}
+
+.contactoContenido h2{
+
+    color:white;
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+
+}
+
+.contactoContenido p{
+
+    color:white;
+
+    font-size:20px;
+
+    line-height:32px;
+
+    margin-bottom:40px;
+
+}
+
+.btnContacto{
+
+    background:white;
+
+    color:#e12626;
+
+    border:none;
+
+    padding:18px 45px;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.btnContacto:hover{
+
+    background:#111;
+
+    color:white;
+
+    transform:translateY(-4px);
+
+}
+
+/*=========================
+      RESPONSIVE CTA
+==========================*/
+
+@media(max-width:768px){
+
+    .contactoCTA{
+
+        padding:70px 20px;
+
+    }
+
+    .contactoContenido h2{
+
+        font-size:34px;
+
+    }
+
+    .contactoContenido p{
+
+        font-size:17px;
+
+        line-height:28px;
+
+    }
+
+    .btnContacto{
+
+        width:100%;
+
+    }
+
+}

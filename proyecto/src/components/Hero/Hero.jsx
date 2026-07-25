@@ -170,8 +170,7 @@ function Hero() {
                 </div>
 
             </section>
-
-            <section className={styles.productos}>
+                        <section className={styles.productos}>
 
                 <div className={styles.productosHeader}>
 
@@ -266,7 +265,31 @@ function Hero() {
 
             </section>
 
-        </>
+            <section className={styles.contactoCTA}>
+
+                <div className={styles.contactoContenido}>
+
+                    <h2>
+                        ¿No encuentras tu refacción?
+                    </h2>
+
+                    <p>
+                        Contáctanos directamente y te ayudaremos a encontrar
+                        la pieza ideal para tu motocicleta. Trabajamos con una
+                        amplia variedad de marcas y modelos.
+                    </p>
+
+                    <button
+                        className={styles.btnContacto}
+                        onClick={() => navigate("/contacto")}
+                    >
+                        CONTACTAR AHORA
+                    </button>
+
+                </div>
+
+            </section>
+                    </>
 
     );
 
