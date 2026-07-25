@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Accesorios.module.css";
 
 const accesorios = [
@@ -26,7 +26,11 @@ const accesorios = [
 ];
 
 function Accesorios() {
+
+  const navigate = useNavigate();
+
   return (
+
     <section className={styles.accesorios}>
 
       <div className={styles.titulo}>
@@ -42,45 +46,72 @@ function Accesorios() {
 
       <div className={styles.grid}>
 
-        {accesorios.map((item) => (
+        {
 
-          <div
-            key={item.id}
-            className={styles.card}
-          >
+          accesorios.map((item) => (
 
-            <div className={styles.imagen}>
-              <img
-                src={item.imagen}
-                alt={item.nombre}
-              />
+            <div
+              key={item.id}
+              className={styles.card}
+            >
+
+              <div className={styles.imagen}>
+
+                <img
+                  src={item.imagen}
+                  alt={item.nombre}
+                />
+
+              </div>
+
+              <div className={styles.contenido}>
+
+                <h2>{item.nombre}</h2>
+
+                <p>{item.descripcion}</p>
+
+                <span>${item.precio} MXN</span>
+
+                <button
+
+                  className={styles.boton}
+
+                  onClick={() =>
+                    navigate("/producto", {
+                      state: {
+                        categoria: "Accesorio",
+                        codigo: `ACC-${item.id}`,
+                        nombre: item.nombre,
+                        descripcion: item.descripcion,
+                        compatibilidad:
+                          "Compatible con múltiples motocicletas",
+                        precio: `$${item.precio} MXN`,
+                        stock: "En stock",
+                        imagen: item.imagen,
+                      },
+                    })
+                  }
+
+                >
+
+                  VER MÁS
+
+                </button>
+
+              </div>
+
             </div>
 
-            <div className={styles.contenido}>
+          ))
 
-              <h2>{item.nombre}</h2>
-
-              <p>{item.descripcion}</p>
-
-              <span>${item.precio}</span>
-
-              <Link
-                to="/contacto"
-                className={styles.boton}
-              >
-                Solicitar
-              </Link>
-
-            </div>
-
-          </div>
-
-        ))}
+        }
 
       </div>
 
     </section>
+
   );
+
 }
 
 export default Accesorios;
