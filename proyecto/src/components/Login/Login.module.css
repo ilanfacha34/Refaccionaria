@@ -1,0 +1,183 @@
+.login{
+
+    min-height:100vh;
+
+    background:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+
+
+/* TARJETA LOGIN */
+
+.login form{
+
+    background:#1b1b1b;
+
+    width:100%;
+
+    max-width:420px;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
+
+}
+
+
+
+/* TITULO SI TIENES H2 */
+
+.login h1,
+
+.login h2{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+    font-size:32px;
+
+}
+
+
+
+/* INPUTS */
+
+.login input{
+
+    width:100%;
+
+    padding:16px;
+
+    background:#252525;
+
+    color:white;
+
+    border:1px solid #333;
+
+    border-radius:12px;
+
+    outline:none;
+
+    font-size:16px;
+
+}
+
+
+
+.login input::placeholder{
+
+    color:#aaa;
+
+}
+
+
+
+.login input:focus{
+
+    border-color:#ff5c73;
+
+}
+
+
+
+/* BOTON */
+
+.login button{
+
+    background:#ff5c73;
+
+    color:white;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    margin-top:10px;
+
+}
+
+
+
+.login button:hover{
+
+    background:#ff304f;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* TEXTO EXTRA */
+
+.login p{
+
+    color:#ccc;
+
+    text-align:center;
+
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+
+    .login{
+
+        padding:20px;
+
+    }
+
+
+
+    .login form{
+
+        padding:30px 25px;
+
+    }
+
+
+
+    .login h1,
+
+    .login h2{
+
+        font-size:26px;
+
+    }
+
+
+}

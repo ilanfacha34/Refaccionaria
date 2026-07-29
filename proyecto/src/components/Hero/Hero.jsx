@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Hero.module.css";
 
@@ -29,42 +30,35 @@ function Hero() {
 
     ];
 
-    const productos = [
+    const [productos, setProductos] = useState([]);
 
-        {
-            imagen: "/imagenes/nose.png",
-            categoria: "Motor",
-            codigo: "REF-001",
-            nombre: "Kit de Transmisión",
-            descripcion: "Cadena, corona y piñón para motocicleta.",
-            compatibilidad: "Compatible con Italika FT150",
-            precio: "$850 MXN",
-            stock: "En stock"
-        },
+useEffect(() => {
 
-        {
-            imagen: "/imagenes/producto2.png",
-            categoria: "Frenos",
-            codigo: "REF-002",
-            nombre: "Pastillas de Freno",
-            descripcion: "Mayor seguridad y rendimiento.",
-            compatibilidad: "Compatible con Honda, Yamaha y Suzuki",
-            precio: "$250 MXN",
-            stock: "En stock"
-        },
+    obtenerProductos();
 
-        {
-            imagen: "/imagenes/34.png",
-            categoria: "Motor",
-            codigo: "REF-003",
-            nombre: "Aceite Premium",
-            descripcion: "Protección y rendimiento para tu motor.",
-            compatibilidad: "Motor 4T",
-            precio: "$180 MXN",
-            stock: "En stock"
-        }
+}, []);
 
-    ];
+async function obtenerProductos() {
+
+    try {
+
+        const respuesta = await fetch(
+            "http://localhost:3001/api/refacciones"
+        );
+
+        const datos = await respuesta.json();
+
+        setProductos(datos);
+
+    } catch (error) {
+
+        console.error("Error al obtener productos:", error);
+
+    }
+
+}
+
+    
 
     return (
 
@@ -209,9 +203,9 @@ function Hero() {
                                 </div>
 
                                 <img
-                                    src={producto.imagen}
-                                    alt={producto.nombre}
-                                />
+    src={`http://localhost:3001${producto.imagen}`}
+    alt={producto.nombre}
+/>
 
                                 <div className={styles.productoContenido}>
 

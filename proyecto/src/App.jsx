@@ -11,6 +11,8 @@ import Detalle from "./components/Detalle_producto/Detalle";
 import ProductoHero from "./components/producto/ProductoHero";
 import Footer from "./components/Footer/Footer";
 import NodFound from "./components/NodFound/NodFound";
+import Login from "./components/Login/Login";
+import Admin from "./components/Admin/Admin";
 
 function App() {
 
@@ -54,6 +56,16 @@ function App() {
             <Route
               path="/producto"
               element={<ProductoHero />}
+            />
+            <Route
+              path="/login"
+              element={<Login/>}
+            />
+
+
+            <Route
+              path="/admin"
+              element={<Admin/>}
             />
 
             <Route

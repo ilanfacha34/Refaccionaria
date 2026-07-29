@@ -1,35 +1,40 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Accesorios.module.css";
-
-const accesorios = [
-  {
-    id: 101,
-    nombre: "Casco Deportivo",
-    descripcion: "Casco certificado de alta resistencia.",
-    precio: 1250,
-    imagen: "/imagenes/casco.png",
-  },
-  {
-    id: 102,
-    nombre: "Guantes",
-    descripcion: "Guantes antideslizantes para motociclista.",
-    precio: 450,
-    imagen: "/imagenes/guantes.png",
-  },
-  {
-    id: 103,
-    nombre: "Espejos Deportivos",
-    descripcion: "Diseño moderno y universal.",
-    precio: 580,
-    imagen: "/imagenes/89.png",
-  },
-];
-
 
 function Accesorios() {
 
   const navigate = useNavigate();
 
+  const [accesorios, setAccesorios] = useState([]);
+
+  useEffect(() => {
+
+    const cargarAccesorios = async () => {
+
+      try {
+
+        const respuesta = await fetch(
+          "http://localhost:3001/api/accesorios"
+        );
+
+        const datos = await respuesta.json();
+
+        setAccesorios(datos);
+
+      }
+
+      catch (error) {
+
+        console.log(error);
+
+      }
+
+    };
+
+    cargarAccesorios();
+
+  }, []);
 
   return (
 
@@ -50,92 +55,123 @@ function Accesorios() {
 
       </div>
 
-
       <div className={styles.grid}>
 
         {
-          accesorios.map((item) => (
 
-            <div
-              key={item.id}
-              className={`${styles.card}
-              hover:shadow-red-500/20
-              hover:scale-[1.02]
-              transition-all
-              duration-300`}
-            >
+          accesorios.length > 0 ? (
 
+            accesorios.map((item) => (
 
-              <div className={styles.imagen}>
+              <div
 
-                <img
-                  src={item.imagen}
-                  alt={item.nombre}
-                  className="transition-transform duration-500 hover:scale-110"
-                />
+                key={item.id_accesorio}
+
+                className={`${styles.card}
+                hover:shadow-red-500/20
+                hover:scale-[1.02]
+                transition-all
+                duration-300`}
+
+              >
+
+                <div className={styles.imagen}>
+
+                  <img
+
+                    src={`http://localhost:3001${item.imagen}`}
+
+                    alt={item.nombre}
+
+                    className="transition-transform duration-500 hover:scale-110"
+
+                  />
+
+                </div>
+
+                <div className={styles.contenido}>
+
+                  <h2 className="font-bold">
+
+                    {item.nombre}
+
+                  </h2>
+
+                  <p>
+
+                    {item.descripcion}
+
+                  </p>
+
+                  <span>
+
+                    ${item.precio} MXN
+
+                  </span>
+
+                  <button
+
+                    className={`${styles.boton} hover:shadow-lg`}
+
+                    onClick={() =>
+
+                      navigate("/producto", {
+
+                        state: {
+
+                          categoria: "Accesorio",
+
+                          codigo: `ACC-${item.id_accesorio}`,
+
+                          nombre: item.nombre,
+
+                          descripcion: item.descripcion,
+
+                          compatibilidad:
+                            "Compatible con múltiples motocicletas",
+
+                          precio: `$${item.precio} MXN`,
+
+                          stock: item.stock,
+
+                          imagen: `http://localhost:3001${item.imagen}`,
+
+                        },
+
+                      })
+
+                    }
+
+                  >
+
+                    VER MÁS
+
+                  </button>
+
+                </div>
 
               </div>
 
+            ))
 
-              <div className={styles.contenido}>
+          ) : (
 
+            <h2 style={{ color: "white", textAlign: "center", width: "100%" }}>
 
-                <h2 className="font-bold">
-                  {item.nombre}
-                </h2>
+              No hay accesorios disponibles.
 
+            </h2>
 
-                <p>
-                  {item.descripcion}
-                </p>
+          )
 
-
-                <span>
-                  ${item.precio} MXN
-                </span>
-
-
-                <button
-                  className={`${styles.boton} hover:shadow-lg`}
-                  onClick={() =>
-                    navigate("/producto", {
-                      state: {
-                        categoria: "Accesorio",
-                        codigo: `ACC-${item.id}`,
-                        nombre: item.nombre,
-                        descripcion: item.descripcion,
-                        compatibilidad:
-                          "Compatible con múltiples motocicletas",
-                        precio: `$${item.precio} MXN`,
-                        stock: "En stock",
-                        imagen: item.imagen,
-                      },
-                    })
-                  }
-                >
-
-                  VER MÁS
-
-                </button>
-
-
-              </div>
-
-
-            </div>
-
-          ))
         }
 
-
       </div>
-
 
     </section>
 
   );
 
 }
-
 
 export default Accesorios;

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import productos from "../../data/productos";
+import { useEffect, useState } from "react";
 import CardProducto from "../CardProducto/CardProducto";
 import styles from "./Refacciones.module.css";
 
@@ -7,6 +6,7 @@ function Refacciones() {
 
   const [buscar, setBuscar] = useState("");
   const [categoria, setCategoria] = useState("Todos");
+  const [productos, setProductos] = useState([]);
 
   const categorias = [
     "Todos",
@@ -19,17 +19,45 @@ function Refacciones() {
     "Accesorios"
   ];
 
+  useEffect(() => {
+
+    const cargarProductos = async () => {
+
+      try {
+
+        const respuesta = await fetch(
+          "http://localhost:3001/api/refacciones"
+        );
+
+        const datos = await respuesta.json();
+
+        setProductos(datos);
+
+      }
+
+      catch (error) {
+
+        console.log(error);
+
+      }
+
+    };
+
+    cargarProductos();
+
+  }, []);
+
   const productosFiltrados = productos.filter((producto) => {
 
-    const nombre = producto.nombre
+    const coincideNombre = producto.nombre
       .toLowerCase()
       .includes(buscar.toLowerCase());
 
-    const tipo =
+    const coincideCategoria =
       categoria === "Todos" ||
       producto.categoria === categoria;
 
-    return nombre && tipo;
+    return coincideNombre && coincideCategoria;
 
   });
 
@@ -55,15 +83,21 @@ function Refacciones() {
           categorias.map((cat) => (
 
             <button
+
               key={cat}
+
               className={
                 categoria === cat
                   ? `${styles.categoria} ${styles.activa}`
                   : styles.categoria
               }
+
               onClick={() => setCategoria(cat)}
+
             >
+
               {cat}
+
             </button>
 
           ))
@@ -79,25 +113,32 @@ function Refacciones() {
         <div className={styles.encabezado}>
 
           <h1 className="text-3xl md:text-4xl">
+
             Catálogo de Refacciones
+
           </h1>
 
           <input
+
             type="text"
+
             placeholder="Buscar producto..."
+
             value={buscar}
-            onChange={(e) =>
-              setBuscar(e.target.value)
-            }
+
+            onChange={(e) => setBuscar(e.target.value)}
+
           />
 
         </div>
 
         <div
+
           className={`${styles.gridProductos}
           grid-cols-1
           sm:grid-cols-2
           xl:grid-cols-3`}
+
         >
 
           {
@@ -107,8 +148,11 @@ function Refacciones() {
               productosFiltrados.map((producto) => (
 
                 <CardProducto
-                  key={producto.id}
+
+                  key={producto.id_refaccion}
+
                   producto={producto}
+
                 />
 
               ))
@@ -116,7 +160,9 @@ function Refacciones() {
             ) : (
 
               <h2 className={styles.sinProductos}>
+
                 No se encontraron productos.
+
               </h2>
 
             )

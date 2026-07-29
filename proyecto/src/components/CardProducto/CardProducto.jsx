@@ -12,7 +12,7 @@ function CardProducto({ producto }) {
       <div className={styles.cardImagen}>
 
         <img
-          src={producto.imagen}
+          src={`http://localhost:3001${producto.imagen}`}
           alt={producto.nombre}
           className="transition-transform duration-500 hover:scale-110"
         />
@@ -44,7 +44,7 @@ function CardProducto({ producto }) {
         </div>
 
         <Link
-          to={`/detalle/${producto.id}`}
+          to={`/detalle/${producto.id_refaccion}`}
           className={`${styles.btnVer} shadow-lg hover:shadow-red-500/30`}
         >
           Ver más
