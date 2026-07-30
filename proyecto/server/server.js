@@ -5,6 +5,7 @@ const mysql = require("mysql2/promise");
 const cors = require("cors");
 const multer = require("multer");
 const path = require("path");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 
@@ -139,11 +140,23 @@ app.post("/api/login", async (req, res) => {
 
         }
 
+        const token = jwt.sign(
+
+            {
+                id: usuario[0].id_usuario,
+                correo: usuario[0].correo,
+                rol: usuario[0].rol
+            },
+            process.env.JWT_SECRET || "secreto123",
+            { expiresIn: "8h" }
+
+        );
+
         res.json({
 
             success: true,
-
-            usuario: usuario[0]
+            usuario: usuario[0],
+            token
 
         });
 
@@ -1367,6 +1380,184 @@ app.delete("/api/compatibilidad/:id", async(req,res)=>{
             success:false,
 
             mensaje:"Error al eliminar compatibilidad"
+
+        });
+
+    }
+
+});
+
+//==================================================
+// OBTENER TODOS LOS USUARIOS
+//==================================================
+
+app.get("/api/usuarios", async (req, res) => {
+
+    try {
+
+        const [datos] = await db.query(
+
+            `SELECT
+                id_usuario,
+                nombre,
+                correo,
+                rol
+            FROM usuarios
+            ORDER BY nombre`
+
+        );
+
+        res.json(datos);
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+
+            success: false,
+            mensaje: "Error al obtener usuarios"
+
+        });
+
+    }
+
+});
+
+//==================================================
+// ELIMINAR USUARIO
+//==================================================
+
+app.delete("/api/usuarios/:id", async (req, res) => {
+
+    try {
+
+        const { id } = req.params;
+
+        const [resultado] = await db.query(
+
+            "DELETE FROM usuarios WHERE id_usuario = ?",
+
+            [id]
+
+        );
+
+        if (resultado.affectedRows === 0) {
+
+            return res.status(404).json({
+
+                success: false,
+                mensaje: "Usuario no encontrado"
+
+            });
+
+        }
+
+        res.json({
+
+            success: true,
+            mensaje: "Trabajador despedido correctamente"
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+
+            success: false,
+            mensaje: "Error al eliminar usuario"
+
+        });
+
+    }
+
+});
+
+//==================================================
+// CREAR USUARIO
+//==================================================
+
+app.post("/api/usuarios", async (req, res) => {
+
+    try {
+
+        const {
+
+            nombre,
+            correo,
+            contraseña,
+            rol
+
+        } = req.body;
+
+        const [existe] = await db.query(
+
+            "SELECT id_usuario FROM usuarios WHERE correo = ?",
+
+            [correo]
+
+        );
+
+        if (existe.length > 0) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                mensaje: "El correo ya existe"
+
+            });
+
+        }
+
+        const [resultado] = await db.query(
+
+            `INSERT INTO usuarios
+            (
+                nombre,
+                correo,
+                contraseña,
+                rol
+            )
+            VALUES (?,?,?,?)`,
+
+            [
+
+                nombre,
+                correo,
+                contraseña,
+                rol
+
+            ]
+
+        );
+
+        res.status(201).json({
+
+            success: true,
+
+            mensaje: "Usuario creado correctamente",
+            id: resultado.insertId
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+
+            success: false,
+
+            mensaje: "Error al crear usuario"
 
         });
 

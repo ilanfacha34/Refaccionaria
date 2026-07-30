@@ -7,7 +7,7 @@ import styles from "./Navbar.module.css";
 
 function Navbar(){
 
-    const { admin, logout } = useAuth();
+    const { usuario, admin, trabajador, logout } = useAuth();
 
     const navigate = useNavigate();
 
@@ -224,10 +224,9 @@ function Navbar(){
 
 
                 {
-                    admin ? (
+                    usuario ? (
 
                         <>
-
 
                             <NavLink
 
@@ -244,10 +243,6 @@ function Navbar(){
                                 Admin
 
                             </NavLink>
-
-
-
-
 
                             <button
 
@@ -266,13 +261,9 @@ function Navbar(){
 
                             </button>
 
-
                         </>
 
-
-
                     ) : (
-
 
                         <NavLink
 
@@ -289,7 +280,6 @@ function Navbar(){
                             Login
 
                         </NavLink>
-
 
                     )
 

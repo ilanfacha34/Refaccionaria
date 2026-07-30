@@ -12,7 +12,7 @@ import ProductoHero from "./components/producto/ProductoHero";
 import Footer from "./components/Footer/Footer";
 import NodFound from "./components/NodFound/NodFound";
 import Login from "./components/Login/Login";
-import Admin from "./components/Admin/Admin";
+import Admin from "./components/admin/Admin";
 
 function App() {
 

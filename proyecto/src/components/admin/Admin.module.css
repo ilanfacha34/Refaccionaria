@@ -1,27 +1,58 @@
+/*==================================================
+                CONTENEDOR GENERAL
+==================================================*/
+
 .admin{
 
     min-height:100vh;
 
     background:#111;
 
-    padding:60px;
+    padding:40px;
 
 }
 
 
-/* TITULO PRINCIPAL */
+/*==================================================
+                    TITULOS
+==================================================*/
 
-.admin h1{
+
+.titulo{
 
     color:white;
 
-    margin-bottom:50px;
+    text-align:center;
+
+    font-size:48px;
+
+    font-weight:700;
+
+    margin-bottom:35px;
+
+}
+
+
+.tituloFormulario{
+
+    color:#111;
+
+    text-align:center;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
 
 }
 
 
 
-/* BOTONES REFACCIONES / ACCESORIOS */
+/*==================================================
+                BOTONES SUPERIORES
+==================================================*/
+
 
 .botones{
 
@@ -29,9 +60,13 @@
 
     justify-content:center;
 
-    gap:40px;
+    align-items:center;
 
-    margin-bottom:60px;
+    gap:20px;
+
+    margin:35px 0;
+
+    flex-wrap:wrap;
 
 }
 
@@ -43,17 +78,17 @@
 
     color:white;
 
-    padding:16px 55px;
-
     border:none;
 
-    border-radius:12px;
+    border-radius:10px;
 
-    cursor:pointer;
+    padding:16px 35px;
 
-    font-size:18px;
+    font-size:17px;
 
     font-weight:bold;
+
+    cursor:pointer;
 
     transition:.3s;
 
@@ -63,7 +98,97 @@
 
 .boton:hover{
 
-    background:#ff304f;
+    background:#e93c57;
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+
+/*==================================================
+                FORMULARIO PRODUCTO
+==================================================*/
+
+
+.input{
+
+    width:100%;
+
+    padding:15px;
+
+    background:white;
+
+    color:#111;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+    transition:.3s;
+
+}
+
+
+
+.input::placeholder{
+
+    color:#777;
+
+}
+
+
+
+.input:focus{
+
+    border-color:#ff5c73;
+
+    box-shadow:0 0 8px rgba(255,92,115,.4);
+
+}
+
+
+
+/*==================================================
+                BOTON GUARDAR
+==================================================*/
+
+
+.guardar{
+
+    width:100%;
+
+    background:#ff5c73;
+
+    color:white;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.guardar:hover{
+
+    background:#e93c57;
 
     transform:translateY(-3px);
 
@@ -71,21 +196,48 @@
 
 
 
-/* FORMULARIO */
 
-form{
 
-    background:#1b1b1b;
+/*==================================================
+                PANEL USUARIOS
+==================================================*/
+
+
+.panelUsuarios{
 
     width:100%;
 
     max-width:650px;
 
-    margin:0 auto 70px auto;
+    margin:40px auto;
 
-    padding:45px;
+    background:#1a1a1a;
 
-    border-radius:20px;
+    padding:35px;
+
+    border-radius:15px;
+
+}
+
+
+
+.panelUsuarios h2{
+
+    color:white;
+
+    text-align:center;
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.formUsuarios{
+
+    width:100%;
 
     display:flex;
 
@@ -97,115 +249,58 @@ form{
 
 
 
-/* TITULO DEL FORMULARIO */
+.formUsuarios input,
 
-form h2{
+.formUsuarios select{
 
-    color:white;
-
-    text-align:center;
-
-    margin-bottom:30px;
-
-    font-size:28px;
-
-}
-
-
-
-/* INPUTS */
-
-.input{
 
     width:100%;
 
-    background:#252525;
+    padding:15px;
 
-    color:white;
+    background:white;
 
-    border:1px solid #333;
-
-    padding:16px;
-
-    border-radius:12px;
-
-    outline:none;
-
-    font-size:16px;
-
-}
-
-
-
-.input::placeholder{
-
-    color:#aaa;
-
-}
-
-
-
-.input:focus{
-
-    border-color:#ff5c73;
-
-}
-
-
-
-/* BOTON GUARDAR */
-
-.guardar{
-
-    background:#ff5c73;
-
-    color:white;
+    color:#111;
 
     border:none;
 
-    padding:16px;
+    border-radius:10px;
 
-    border-radius:12px;
+    font-size:16px;
 
-    font-size:17px;
+    outline:none;
 
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    margin-top:15px;
 
 }
 
 
 
-.guardar:hover{
+.formUsuarios input:focus,
 
-    background:#ff304f;
+.formUsuarios select:focus{
 
-    transform:translateY(-3px);
+    box-shadow:0 0 8px rgba(255,92,115,.5);
 
 }
 
 
 
-/* CONTENEDOR TARJETAS */
+
+
+/*==================================================
+                TARJETAS PRODUCTOS
+==================================================*/
+
 
 .card{
 
-    background:#1b1b1b;
+    background:#1a1a1a;
+
+    border-radius:15px;
 
     padding:25px;
 
-    border-radius:20px;
-
-    color:white;
-
     text-align:center;
-
-    box-shadow:0 5px 20px rgba(0,0,0,.4);
 
     transition:.3s;
 
@@ -215,45 +310,114 @@ form h2{
 
 .card:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-8px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.5);
 
 }
 
 
-
-/* IMAGEN PRODUCTO */
 
 .card img{
 
-    background:#252525;
+    width:100%;
 
-    border-radius:15px;
+    height:220px;
 
-    padding:15px;
+    object-fit:contain;
+
+    background:white;
+
+    border-radius:10px;
 
 }
 
 
-
-/* NOMBRE */
 
 .card h3{
 
     color:white;
 
-    margin-top:20px;
+    font-size:23px;
+
+    margin:20px 0 10px;
 
 }
 
 
 
-/* PRECIO */
-
 .card p{
 
-    color:#ff5c73;
+    color:#ddd;
 
-    font-size:20px;
+    font-size:17px;
+
+}
+
+
+
+
+
+/*==================================================
+                    STOCK
+==================================================*/
+
+
+.stockControles{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin:25px 0;
+
+}
+
+
+
+.stockBtn{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ff5c73;
+
+    color:white;
+
+    font-size:35px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.stockBtn:hover{
+
+    background:#e93c57;
+
+    transform:scale(1.1);
+
+}
+
+
+
+.stockNumero{
+
+    color:white;
+
+    font-size:30px;
 
     font-weight:bold;
 
@@ -261,11 +425,16 @@ form h2{
 
 
 
-/* BOTON ELIMINAR */
 
-.eliminar{
 
-    margin-top:20px;
+/*==================================================
+                ACTUALIZAR STOCK
+==================================================*/
+
+
+.actualizar{
+
+    width:100%;
 
     background:#ff5c73;
 
@@ -273,13 +442,60 @@ form h2{
 
     border:none;
 
-    padding:12px 35px;
-
     border-radius:10px;
+
+    padding:15px;
+
+    margin-top:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
 
     cursor:pointer;
 
+    transition:.3s;
+
+}
+
+
+
+.actualizar:hover{
+
+    background:#e93c57;
+
+}
+
+
+
+
+
+/*==================================================
+                    ELIMINAR
+==================================================*/
+
+
+.eliminar{
+
+    width:100%;
+
+    background:#ff5c73;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    margin-top:12px;
+
+    font-size:16px;
+
     font-weight:bold;
+
+    cursor:pointer;
 
     transition:.3s;
 
@@ -289,22 +505,25 @@ form h2{
 
 .eliminar:hover{
 
-    background:#ff304f;
-
-    transform:translateY(-3px);
+    background:#e93c57;
 
 }
 
 
 
-/* RESPONSIVE */
 
-@media(max-width:900px){
+
+/*==================================================
+                    RESPONSIVE
+==================================================*/
+
+
+@media(max-width:1024px){
 
 
     .admin{
 
-        padding:40px 25px;
+        padding:30px 20px;
 
     }
 
@@ -313,12 +532,20 @@ form h2{
 
 
 
-@media(max-width:600px){
+@media(max-width:768px){
 
 
     .admin{
 
-        padding:25px 15px;
+        padding:20px 15px;
+
+    }
+
+
+
+    .titulo{
+
+        font-size:35px;
 
     }
 
@@ -327,8 +554,6 @@ form h2{
     .botones{
 
         flex-direction:column;
-
-        gap:20px;
 
     }
 
@@ -342,11 +567,496 @@ form h2{
 
 
 
-    form{
+    .panelUsuarios{
 
         padding:25px;
 
     }
 
+
+}
+
+
+
+@media(max-width:480px){
+
+
+    .titulo{
+
+        font-size:28px;
+
+    }
+
+
+
+    .stockBtn{
+
+        width:50px;
+
+        height:50px;
+
+        font-size:28px;
+
+    }
+
+
+}
+/* ==========================
+   TITULO ADMIN
+========================== */
+
+.titulo{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:45px;
+
+    margin-bottom:40px;
+
+}
+
+
+/* ==========================
+   FORMULARIO PRODUCTO
+========================== */
+
+
+.formProducto{
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+/* ==========================
+   TITULO FORMULARIO
+========================== */
+
+
+.tituloFormulario{
+
+    text-align:center;
+
+    color:#111;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ==========================
+   INPUTS
+========================== */
+
+
+.input{
+
+    width:100%;
+
+    padding:15px;
+
+    background:white;
+
+    color:#111;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+
+.input:focus{
+
+    outline:none;
+
+    border-color:#ff5c73;
+
+}
+
+
+/* ==========================
+   PANEL USUARIOS
+========================== */
+
+
+.panelUsuarios{
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+}
+
+
+.formUsuarios{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.formUsuarios input,
+.formUsuarios select{
+
+    background:white;
+
+    color:#111;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+
+    width:100%;
+
+}
+
+
+
+/* ==========================
+   PRODUCTOS
+========================== */
+
+
+.gridProductos{
+
+    margin-top:60px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+
+
+.card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:contain;
+
+}
+
+
+
+.card h3{
+
+    color:#111;
+
+    font-size:22px;
+
+}
+
+
+
+/* ==========================
+   STOCK MAS GRANDE
+========================== */
+
+
+.stockControles{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin:25px 0;
+
+}
+
+
+.stockBtn{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#ff5c73;
+
+    color:white;
+
+    font-size:32px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+.stockBtn:hover{
+
+    background:#e53935;
+
+}
+
+
+
+.stockNumero{
+
+    color:#111;
+
+    font-size:25px;
+
+    font-weight:bold;
+
+}
+/* ==========================
+   CONTENEDOR GENERAL
+========================== */
+
+.admin{
+
+    min-height:100vh;
+
+    background:#111;
+
+    padding:40px;
+
+}
+
+
+.contenedorAdmin{
+
+    width:100%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+}
+
+
+
+/* ==========================
+   TITULO PRINCIPAL
+========================== */
+
+
+.titulo{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:45px;
+
+    font-weight:700;
+
+    margin-bottom:40px;
+
+}
+
+
+
+/* ==========================
+   BOTONES SUPERIORES
+========================== */
+
+
+.botones{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:40px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.boton{
+
+    background:#ff5c73;
+
+    color:white;
+
+    border:none;
+
+    padding:16px 35px;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.boton:hover{
+
+    background:#e53935;
+
+    transform:translateY(-4px);
+
+}
+
+
+
+
+/* ==========================
+   PANEL USUARIOS
+========================== */
+
+
+.panelUsuarios{
+
+    width:100%;
+
+    max-width:650px;
+
+    margin:40px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+
+
+.panelUsuarios h2{
+
+    text-align:center;
+
+    color:#111;
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.formUsuarios{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+
+.formUsuarios input,
+
+.formUsuarios select{
+
+    width:100%;
+
+    padding:15px;
+
+    background:white;
+
+    color:#111;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+}
+
+
+
+.formUsuarios input:focus,
+
+.formUsuarios select:focus{
+
+    outline:none;
+
+    border-color:#ff5c73;
 
 }

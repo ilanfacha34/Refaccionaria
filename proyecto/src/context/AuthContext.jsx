@@ -1,44 +1,58 @@
 import { createContext, useContext, useState } from "react";
 
+const initialUserState = () => {
+
+    const datos = localStorage.getItem("usuario");
+
+    if (!datos) return null;
+
+    try {
+        return JSON.parse(datos);
+    } catch {
+        return null;
+    }
+};
 
 const AuthContext = createContext();
 
+export function AuthProvider({ children }) {
 
-export function AuthProvider({children}){
+    const [usuario, setUsuario] = useState(initialUserState);
 
+    const login = (usuarioLogueado, token) => {
 
-    const [admin, setAdmin] = useState(
-        localStorage.getItem("admin") === "true"
-    );
+        const datosSesion = {
+            ...usuarioLogueado,
+            token
+        };
 
+        localStorage.setItem(
+            "usuario",
+            JSON.stringify(datosSesion)
+        );
 
-    const login = (usuario)=>{
-
-        localStorage.setItem("admin", "true");
-        localStorage.setItem("usuario", usuario);
-
-        // Actualiza el Navbar inmediatamente
-        setAdmin(true);
+        setUsuario(datosSesion);
 
     };
 
+    const logout = () => {
 
-    const logout = ()=>{
-
-        localStorage.removeItem("admin");
         localStorage.removeItem("usuario");
 
-        // Actualiza el Navbar inmediatamente
-        setAdmin(false);
+        setUsuario(null);
 
     };
 
+    const esAdmin = usuario?.rol === "admin";
+    const esTrabajador = usuario?.rol === "trabajador";
 
-    return(
+    return (
 
         <AuthContext.Provider
             value={{
-                admin,
+                usuario,
+                admin: esAdmin,
+                trabajador: esTrabajador,
                 login,
                 logout
             }}
@@ -52,8 +66,7 @@ export function AuthProvider({children}){
 
 }
 
-
-export function useAuth(){
+export function useAuth() {
 
     return useContext(AuthContext);
 

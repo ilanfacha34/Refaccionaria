@@ -51,8 +51,8 @@ function Login() {
 
             }
 
-            // Guarda la sesión
-            login(datos.usuario);
+            // Guarda la sesión con el token JWT
+            login(datos.usuario, datos.token);
 
             // Ir al panel de administración
             navigate("/admin");
